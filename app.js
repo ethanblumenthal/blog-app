@@ -64,6 +64,17 @@ app.get('/blogs/:id', function(req, res) {
     })
 });
 
+// edit route
+app.get('/blogs/:id/edit', function(req, res) {
+    Blog.findById(req.params.id, function(err, foundBlog) {
+        if (err) {
+            res.redirect('/blogs');
+        } else {
+            res.render('edit', {blog: foundBlog});
+        }
+    });
+});
+
 // server config
 app.listen(3000, function() {
     console.log('Server is running!');

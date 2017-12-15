@@ -3,7 +3,7 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    methodOverride = require('method-override'),
+    methodOverride = require('method-override');
     expressSanitizer = require('express-sanitizer');
 
 // app config
@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-app.use(expressSanitizer);
+app.use(expressSanitizer());
 
 // schema config
 var blogSchema = new mongoose.Schema({

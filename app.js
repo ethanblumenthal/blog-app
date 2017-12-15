@@ -9,7 +9,7 @@ var express = require('express'),
 // app config
 mongoose.connect('mongodb://localhost/blog_app', {useMongoClient: true});
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use("/stylesheets", express.static(__dirname + "/stylesheets"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(expressSanitizer());
